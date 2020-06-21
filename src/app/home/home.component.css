@@ -1,0 +1,248 @@
+
+  /* mat-card{
+    margin-right: 64px;
+    margin-bottom: 64px;
+ } */
+
+ 
+
+
+   /*.example-header-image {
+     background-image: url('../../assets/images/andy.png');
+     background-size: cover;
+   }*/
+
+   .example-card {
+    max-width: 400px;
+    background-image: linear-gradient(to right, #4facfe09 0%, #00f1fe07 100%);
+    
+    border: none !important;
+    box-shadow: none;
+    
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.089), 0 1px 2px rgba(0, 0, 0, 0.075); 
+  }
+
+  .description{
+    padding: 1rem;
+  }
+
+  mat-card-content{
+    height: 200px;
+    padding: 30px;
+  }
+
+  button{
+    margin-top: 20px;
+  }
+ 
+  
+  
+   .newtraining{
+     padding: 64px;
+   }
+   .product{
+    cursor: pointer;
+    min-width: 180px;
+    height: 420px;
+    width: 360px;
+    max-height: 420px;
+    text-align: center;
+    margin-bottom: 16px; /* same as fxLayoutGap for even distribution */
+    overflow-y: scroll;
+  }
+  
+   
+
+.android-be-together-section {
+
+
+  
+  background: url("https://assets.website-files.com/5bfd1275cc56e15ce750b18e/5c289afb9a15756feb893ab1_75.%20Pale%20Turquoise.jpg");
+ /* background-image: linear-gradient( 135deg, #ffd3a58f 10%, #fd658688 100%);*/
+  /*background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);*/
+ 
+  object-fit: cover; 
+  object-position: center;
+  width: auto;
+  background-size: cover;
+ 
+}
+#description{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+.flex-part{
+ 
+  position: relative;
+  
+  object-fit: cover; 
+  object-position: center;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.textual-part{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 70px;
+  padding: 30px;
+  background: none;
+  border: none !important;
+  box-shadow: none;
+  border-radius: 10px;
+  
+  height: 50%;
+}
+
+.img{
+  height:24rem;
+
+  
+}
+
+#description{
+  color: #576574;
+}
+
+h3{
+  font-size: 45px;
+  font-weight: bold;
+  /*color: #5f27cd;*/
+  color:#575fcf;
+}
+
+
+.btn{
+  height:3rem;
+  width: 9rem;
+  font-size: 1.3rem;
+  border-radius: none;
+  background-color: #575fcf;
+  color:white;
+}
+h4{
+  font-weight: bold;
+  color:#222f3e;
+}
+
+.Card-made{
+  display:flex;
+  justify-content: space-around !important;
+    align-items: center !important;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    
+}
+
+
+.main-button{
+  height: 3rem;;
+  width: 12rem;
+  border-radius: 40px;
+  margin-bottom: 50px;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+ 
+}
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .android-navigation-container {
+    display: none;
+  }
+
+  .android-title {
+    display: none !important;
+  }
+
+  .android-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .android.android-search-box.is-focused ~ .android-mobile-title,
+  .android-search-box.is-focused + .android-navigation-container + .android-mobile-title {
+    opacity: 0;
+  }
+
+  .android-more-button {
+    display: none;
+  }
+
+  .android-search-box.is-focused {
+    width: calc(100% - 48px);
+  }
+
+  .android-search-box .mdl-textfield__expandable-holder {
+    width: 100%;
+  }
+
+  .android-be-together-section {
+    height: 350px;
+  }
+
+  .android-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .android-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .android-create-character {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .android-create-character img {
+    height: 12px;
+  }
+
+  .android-fab {
+    display: none;
+  }
+
+  .android-wear-band-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .android-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+}
+   

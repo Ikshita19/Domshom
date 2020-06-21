@@ -1,0 +1,39 @@
+<div class="mu-title" fxLayout="column" fxLayoutAlign="center-block center">
+    <h2>{{quizService.quiz.title}}</h2>
+  </div>
+  
+  <span fxLayout="row wrap" fxLayoutAlign="center" >
+      <button mat-button *ngFor="let question of quizService.quiz.questions; let i = index" (click)="goToQuestion(i)" [ngClass]="{green: quizService.quiz.questions[i].correctAnswer >= 0}">{{i +1}}</button>
+  </span>
+  
+   <div fxLayout="row" fxLayoutAlign="center center">
+  
+  
+    <div>
+      <div>
+        <mat-list>
+  
+          <mat-list-item><strong>Question {{quizService.quiz.currentIndex + 1}}: &nbsp;</strong><span class="code" [innerHTML]="quizService.quiz.currentQuestion.text"></span></mat-list-item>
+          <mat-list-item *ngFor="let answer of quizService.quiz.currentQuestion.answers; let i = index" >
+            <mat-checkbox name="choiceGroup" id="{{i}}"
+              [checked]="quizService.quiz.currentQuestion.correctAnswer === i" 
+              (change)="quizService.quiz.currentQuestion.correctAnswer = $event.checked ? i : -1"><span class="code" [innerHTML]="answer"></span>
+            </mat-checkbox>
+    
+          </mat-list-item>
+        </mat-list>
+  
+      </div>
+  
+      <div fxLayoutAlign="center" fxLayoutGap ="200px">
+        <button mat-button class="primary" *ngIf="quizService.quiz.currentIndex > 0" (click)="previousQuestion()">Previous</button>
+        <button mat-button class="primary" *ngIf="quizService.quiz.currentIndex < (quizService.quiz.questions.length-1)" (click)="nextQuestion()">Next</button>
+      </div>
+    
+      <div fxLayoutAlign="center" fxLayoutGap="100px">
+        <button mat-raised-button class="primary" (click)="submitTest()">Submit Test</button>
+      </div>
+  
+    </div>
+  
+  </div> 

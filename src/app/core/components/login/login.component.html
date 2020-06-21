@@ -1,0 +1,56 @@
+<div class="login-wrapper" fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill >
+<mat-card>
+
+  <mat-card-content>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+
+
+      <!-- FLEX-CHILD - LEFT -->
+      <div class="box" fxFlex="1 1" fxHide.lt-md>
+        <img src="../../../../assets/images/preview.jpg" />
+      </div>
+
+      <!-- FLEX-CHILD - RIGHT -->
+      <div class="box" fxFlex="1 1">
+
+        <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+          <mat-form-field>
+            <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+            <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel"
+              required>
+            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+          </mat-form-field>
+
+            <button mat-stroked-button color="primary" type="submit" *ngIf="!isLoading">Login</button>
+     
+
+
+          <div class="small-box">
+            <a mat-flat-button [routerLink]="['/forgotpassword']" routerLinkActive="router-link-active">Forgot Password?</a>
+          </div>
+  
+          <div class="small-box">
+            <button type="button" mat-raised-button color="accent" [routerLink]="['/signup']" routerLinkActive="router-link-active" >Create an account</button>
+          </div>
+  
+
+        </form>
+
+       
+
+
+
+    </div>
+
+
+
+
+
+    <!-- < -->
+  </mat-card-content>
+</mat-card>
+</div>

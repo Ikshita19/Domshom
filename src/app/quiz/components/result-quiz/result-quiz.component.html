@@ -1,0 +1,20 @@
+<div class="mu-title" fxLayout="row" fxLayoutAlign="center" >
+    <h3>Result : {{resultPercentage | number}} %</h3>
+</div>
+  
+
+<mat-expansion-panel *ngFor="let question of this.quizService.quiz.questions">
+<mat-expansion-panel-header>
+    <mat-panel-title [innerHTML]= "question.text">
+       
+    </mat-panel-title>
+    <mat-panel-description>
+        <p>{{(question.correctIndex===question.correctAnswer)?'Correct':'Incorrect'}}</p>
+    </mat-panel-description>
+</mat-expansion-panel-header>
+
+<p><span>Your Selection: </span><span [innerHTML]="question.answers[question.correctAnswer]"></span></p>
+<p><span>Correct Answer: </span><span [innerHTML]="question.answers[question.correctIndex]"></span></p>
+
+
+</mat-expansion-panel>

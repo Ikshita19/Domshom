@@ -1,0 +1,106 @@
+<mat-accordion class="example-headers-align">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal details
+      </mat-panel-title>
+      <mat-panel-description>
+        View/Update your details
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="userDetailForm" (submit)="changeUserDetail()" *ngIf="!isLoading">
+      <mat-form-field>
+        <input matInput type="text" formControlName="name" placeholder="Enter Name">
+        <mat-error *ngIf="userDetailForm.get('name').invalid">Please enter a valid name</mat-error>
+      </mat-form-field> 
+      <mat-form-field>
+        <input matInput type="email" formControlName="email" placeholder="Enter Email">
+        <mat-error *ngIf="userDetailForm.get('email').invalid">Please enter a valid email</mat-error>
+      </mat-form-field> 
+
+      <button mat-raised-button type="button" (click)="editUserDetails()">Edit User Details</button>
+      <button mat-raised-button color="primary" type="submit">Update User Details</button>
+    </form>
+
+    <mat-action-row>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Change Password
+      </mat-panel-title>
+      <mat-panel-description>
+        Change your password
+        <mat-icon>enhanced_encryption</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="formPassword" (submit)="onChangePassword()" *ngIf="!isLoading">
+      <mat-form-field>
+        <input matInput type="password" formControlName="currentPassword" placeholder="Current Password">
+        <mat-error *ngIf="formPassword.get('currentPassword').invalid">Please enter a password</mat-error>
+      </mat-form-field> 
+      <mat-form-field>
+        <input matInput type="password" formControlName="newPassword" placeholder="New Password">
+        <mat-error *ngIf="formPassword.get('newPassword').invalid">Please enter a password</mat-error>
+      </mat-form-field> 
+
+      <button mat-raised-button color="primary" type="submit">Change Password</button>
+    </form>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Profile Pic
+      </mat-panel-title>
+      <mat-panel-description>
+        View/Update your profile pic
+        <mat-icon>face</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="form" (submit)="onSavePost()" *ngIf="!isLoading">
+      
+      <div>
+        <button mat-stroked-button type="button" (click)="filePicker.click()">Edit Image</button>
+        <input type="file" #filePicker (change)="onImagePicked($event)">
+      </div>
+      <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+        <img [src]="imagePreview" [alt]="form.value.title">
+      </div>
+      <div class="image-preview" *ngIf="!imagePreview">
+        <img [src]="profileImagePath" [alt]="form.value.title">
+      </div>
+      <!-- <mat-form-field>
+        <textarea matInput rows="4" formControlName="content" placeholder="Post Content"></textarea>
+        <mat-error *ngIf="form.get('content').invalid">Please enter a post title.</mat-error>
+      </mat-form-field> -->
+      <button mat-raised-button color="primary" type="submit">Upload Image</button>
+    </form>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">End</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+</mat-accordion>
+
+
+
+  
+
+
+  
