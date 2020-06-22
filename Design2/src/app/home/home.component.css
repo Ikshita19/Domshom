@@ -1,0 +1,319 @@
+
+  /* mat-card{
+    margin-right: 64px;
+    margin-bottom: 64px;
+ } */
+
+ 
+
+
+   /*.example-header-image {
+     background-image: url('../../assets/images/andy.png');
+     background-size: cover;
+   }*/
+
+   .example-card {
+    max-width: 400px;
+    background-image: linear-gradient(to right, #4facfe09 0%, #00f1fe07 100%);
+    
+    border: none !important;
+    box-shadow: none;
+    
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.089), 0 1px 2px rgba(0, 0, 0, 0.075); 
+  }
+
+  .description{
+    padding: 1rem;
+  }
+
+
+
+  mat-card-content{
+    height: 200px;
+    padding: 30px;
+  }
+
+  button{
+    margin-top: 20px;
+  }
+ 
+  
+  
+   .newtraining{
+     padding: 64px;
+   }
+   .product{
+    cursor: pointer;
+    min-width: 180px;
+    height: 420px;
+    width: 360px;
+    max-height: 420px;
+    text-align: center;
+    margin-bottom: 16px; /* same as fxLayoutGap for even distribution */
+    overflow-y: scroll;
+  }
+  
+   
+
+.android-be-together-section {
+
+  position: relative;
+  
+  background-image: url("../../assets/images/Background-Image.jpg");
+
+ /* background-image: linear-gradient( 135deg, #ffd3a58f 10%, #fd658688 100%);*/
+  /*background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);*/
+  height: 600px;
+  object-fit: cover; 
+  object-position: center;
+  width: auto;
+  background-size: cover;
+ 
+}
+
+.layer {
+  background-color: rgba(48, 51, 107, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#description{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+.flex-part{
+ 
+  position: relative;
+  padding-top:12rem;
+
+  object-fit: cover; 
+  object-position: center;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.textual-part{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 70px;
+  padding: 30px;
+  background: none;
+  border: none !important;
+  box-shadow: none;
+  border-radius: 10px;
+  
+  height: 50%;
+}
+
+.img{
+  height:24rem;
+
+  
+}
+
+#description{
+  color:white;
+  opacity:0.7;
+}
+
+h3{
+  font-size: 45px;
+  font-weight: bold;
+  /*color: #5f27cd;*/
+  color:white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.btn{
+  height:3rem;
+  width: 9rem;
+  font-size: 1.3rem;
+  border-radius: none;
+  background-color: #575fcf;
+  color:white;
+}
+h4{
+  font-weight: bold;
+  color:#222f3e;
+}
+
+h2{
+  font-weight:500;
+  text-align: center;
+}
+
+.mdl-card__actions{
+  display:flex;
+  justify-content: center;
+
+}
+
+.mdl-js-button{
+  letter-spacing: 2px;
+  color: #82589F;
+  font-weight: 500;
+}
+
+.Card-made{
+  display:flex;
+  justify-content: space-around !important;
+    align-items: center !important;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    
+}
+
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+  transition: ease-in-out 0.3s;
+}
+
+.demo-card-square.mdl-card:hover{
+  transform: scale(1.2);
+}
+.demo-card-square > .mdl-card__title {
+  color: transparent;
+  background:
+    url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60') bottom right 15% no-repeat #46B6AC;
+}
+
+.demo-card-square > .mdl-card__title:hover {
+  opacity:0.7;
+  color: white;
+  font-weight: bold;
+}
+
+.demo-card-square > .quizes{
+  color: transparent;
+  background:
+    url('https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60') bottom right 15% no-repeat #46B6AC;
+}
+
+.demo-card-square > .blogs{
+  color: transparent;
+  background:
+    url('https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60') bottom right 15% no-repeat #46B6AC;
+}
+
+
+.main-button{
+  height: 3rem;;
+  width: 12rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 50px;
+  /*background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);*/
+ /*background-image: linear-gradient(25deg, #5271C4 0%, #B19FFF 48%, #d279e9 100%);*/
+ background-color:#dca9e9;
+ margin-right: 1rem;
+      color: white;
+ 
+}
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .android-navigation-container {
+    display: none;
+  }
+
+  .android-title {
+    display: none !important;
+  }
+
+  .android-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .android.android-search-box.is-focused ~ .android-mobile-title,
+  .android-search-box.is-focused + .android-navigation-container + .android-mobile-title {
+    opacity: 0;
+  }
+
+  .android-more-button {
+    display: none;
+  }
+
+  .android-search-box.is-focused {
+    width: calc(100% - 48px);
+  }
+
+  .android-search-box .mdl-textfield__expandable-holder {
+    width: 100%;
+  }
+
+  .android-be-together-section {
+    height: 350px;
+  }
+
+  .android-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .android-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .android-create-character {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .android-create-character img {
+    height: 12px;
+  }
+
+  .android-fab {
+    display: none;
+  }
+
+  .android-wear-band-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .android-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+}
+  
+/*Flipping Cards*/

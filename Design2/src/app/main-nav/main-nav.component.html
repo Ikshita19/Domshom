@@ -1,0 +1,69 @@
+<mat-sidenav-container class="sidenav-container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <mat-sidenav #sidenav fxHide.gt-xs #drawer class="sidenav" [ngClass]="{hidden: (isHandset$ | async) === false}"
+    fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="sidenav.close()" routerLink="quiz">Quiz</a>
+      <a mat-list-item (click)="sidenav.close()" routerLink="videos">Videos</a>
+      <a mat-list-item>Blogs</a>
+      <a mat-menu-item (click)="sidenav.close()" routerLink="blogs/threads-in-nodejs-vs-java">Threads In NodeJs</a>
+      <a mat-list-item>Slides</a>
+      <a mat-menu-item (click)="sidenav.close()" *ngFor="let slide of slides" [href]="slide.link">{{slide.title}}</a>
+      <!-- <a mat-list-item (click)="sidenav.close()" *ngIf="userIsAuthenticated && userIsAdmin" routerLink="category">Create Quiz</a> -->
+      <a mat-list-item (click)="sidenav.close()" *ngIf="!userIsAuthenticated" routerLink="login">Login</a>
+      <!-- <a mat-list-item (click)="sidenav.close()" *ngIf="!userIsAuthenticated" routerLink="signup">Sign Up</a> -->
+      <a mat-list-item (click)="sidenav.close(); onLogout();" *ngIf="userIsAuthenticated">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="nav">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon" fxHide.gt-xs>menu</mat-icon>
+      </button>
+      <a class="mdl-navigation" routerLink="/home"><span>Domshom</span></a>
+      <span class="spacer"></span>
+      <nav class="mdl-navigation" fxHide.xs>
+        <a class="mdl-navigation__link mdl-typography--text-uppercase" routerLink="">Home</a>
+        <a class="mdl-navigation__link mdl-typography--text-uppercase" routerLink="quiz">Quiz Section</a>
+        <a class="mdl-navigation__link mdl-typography--text-uppercase" routerLink="videos">Video Courses</a>
+        <a class="mdl-navigation__link mdl-typography--text-uppercase" [matMenuTriggerFor]="menu"
+          #blogsMenuTrigger="matMenuTrigger" (mouseenter)="blogsMenuTrigger.openMenu()">Blogs</a>
+        <mat-menu #menu="matMenu">
+          <span (mouseleave)="blogsMenuTrigger.closeMenu()">
+            <a class="nested-menu-item" mat-menu-item routerLink="blogs/threads-in-nodejs-vs-java">Threads In NodeJs</a>
+          </span>
+        </mat-menu>
+        <a class="mdl-navigation__link mdl-typography--text-uppercase" [matMenuTriggerFor]="slidesmenu"
+          #slidesMenuTrigger="matMenuTrigger" (mouseenter)="slidesMenuTrigger.openMenu()">Slides</a>
+        <mat-menu #slidesmenu="matMenu" [overlapTrigger]="false">
+          <span (mouseleave)="slidesMenuTrigger.closeMenu()">
+            <a class="nested-menu-item" mat-menu-item *ngFor="let slide of slides"
+              [href]="slide.link">{{slide.title}}</a>
+          </span>
+        </mat-menu>
+        <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" *ngIf="userIsAuthenticated && userIsAdmin" routerLink="category">Create Quiz</a> -->
+        <a class="mdl-navigation__link mdl-typography--text-uppercase" *ngIf="!userIsAuthenticated"
+          routerLink="login">Login</a>
+        <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" *ngIf="!userIsAuthenticated" routerLink="signup">Sign Up</a> -->
+        <!-- <a class="mdl-navigation__link mdl-typography--text-uppercase" *ngIf="userIsAuthenticated" (click)="onLogout()">Logout</a>
+          <a class="mdl-navigation__link mdl-typography--text-uppercase"  routerLink="profile">Profile</a> -->
+        <span *ngIf="userIsAuthenticated">
+          <a class="mdl-navigation__link mdl-typography--text-uppercase" [matMenuTriggerFor]="profilemenu"
+            #profilesMenuTrigger="matMenuTrigger" (mouseenter)="profilesMenuTrigger.openMenu()"><img
+              class="circular-square" [src]="profileImagePath" /></a>
+          <mat-menu #profilemenu="matMenu" [overlapTrigger]="false">
+            <span (mouseleave)="profilesMenuTrigger.closeMenu()">
+              <a class="nested-menu-item" mat-menu-item routerLink="profile">Profile</a>
+              <a class="nested-menu-item" mat-menu-item (click)="onLogout()">Logout</a>
+            </span>
+          </mat-menu>
+        </span>
+
+      </nav>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

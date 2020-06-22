@@ -1,0 +1,191 @@
+<!-- <div fxLayout="row wrap" fxLayoutAlign="start" flexLayoutGap="32px" fxFlexFill> -->
+  <div gdAreas="header header | side content | footer footer"
+gdGap="8px"
+gdRows="auto auto auto"
+gdAreas.lt-md="header | side | content | footer"
+  gdRows.lt-md="auto auto auto auto">
+  <div gdArea="side" class="box">
+
+    <vg-player (onPlayerReady)="onPlayerReady($event)">
+      <vg-buffering></vg-buffering>
+
+      <vg-controls>
+        <vg-play-pause></vg-play-pause>
+        <vg-playback-button></vg-playback-button>
+
+        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+        <vg-scrub-bar>
+          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+
+        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+        <vg-mute></vg-mute>
+        <vg-volume></vg-volume>
+
+        <vg-fullscreen></vg-fullscreen>
+      </vg-controls>
+
+      <video #media [vgMedia]="media" [src]="currentItem.src" id="singleVideo" preload="auto" autoplay="false"
+        crossorigin></video>
+    </vg-player>
+
+
+    <!-- <div class="mt-2">
+            <h3>{{ currentItem.title }}</h3>
+            <p>{{ currentItem.title }}</p>
+          </div> -->
+
+  </div>
+  <div gdArea="content" class="box-contents">
+
+    <!-- <div fxLayout="column" fxLayoutAlign="start" fxFlexFill style="min-height: min-content;">
+      <div fxFlex="1"> -->
+
+        <cdk-virtual-scroll-viewport itemSize="150" class="example-viewport">
+        <mat-card appMaterialElevation raisedElevation="8">
+
+          <mat-card-header>
+            <mat-card-subtitle>
+              <h3>{{videoLibrary.price - (videoLibrary.price * (videoLibrary.discount/100)) | currency: 'INR'}}</h3>
+              <strong> {{videoLibrary.price | currency: 'INR'}}</strong> <span class="red"> - {{videoLibrary.discount}}%
+                off (introductory offer) </span>
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+
+            <button color="accent" mat-raised-button *ngIf="!authService.getIsAuth()" [routerLink]="['/login']"
+            routerLinkActive="router-link-active">Login To Buy</button>
+          <button color="accent" mat-raised-button *ngIf="authService.getIsAuth()" (click)="enroll()">Buy
+            Course</button>
+          </mat-card-content>
+
+        </mat-card>
+
+       
+        <!-- <mat-accordion>
+          <mat-expansion-panel *cdkVirtualFor="let section of videoLibrary.sections"  >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{section.title}}
+              </mat-panel-title>
+              <mat-panel-description>
+                Type your name and age
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <mat-form-field>
+              <mat-label>First name</mat-label>
+              <input matInput>
+            </mat-form-field>
+        
+            <mat-form-field>
+              <mat-label>Age</mat-label>
+              <input matInput type="number" min="1">
+            </mat-form-field>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Self aware panel
+              </mat-panel-title>
+              <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+        </mat-accordion> -->
+        
+
+        <mat-accordion [multi]="true">
+        <mat-expansion-panel *cdkVirtualFor="let section of videoLibrary.sections" expanded="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{section.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+
+          </mat-expansion-panel-header>
+
+
+          <mat-nav-list>
+            <mat-list-item *ngFor="let video of section.videos; let i = index" [disabled]="video.paid"
+              (click)="onClickPlaylistItem(video, i)">
+              <mat-checkbox name="choiceGroup"><span class="code" [innerHTML]="video.title"></span>
+              </mat-checkbox>
+            </mat-list-item>
+          </mat-nav-list>
+          <mat-divider style="align-self: stretch;"></mat-divider>
+
+        </mat-expansion-panel>
+       </mat-accordion>
+      </cdk-virtual-scroll-viewport>
+
+<!-- 
+      </div>
+    </div> -->
+
+  </div>
+
+
+  <div gdArea="footer">
+    <mat-tab-group animationDuration="1000ms">
+      <mat-tab label="Overview">
+
+        <mat-card>
+          <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{videoLibrary.title}}</mat-card-title>
+              <mat-card-subtitle>{{videoLibrary.description}}</mat-card-subtitle>
+          </mat-card-header>
+      
+          <mat-card-content>
+              <section class="example-display">
+                  <p class="mat-subheading-2">
+                      <strong>
+                          NodeJS is blistering fast and already so popular. But what makes it so? How it is sailing
+                          compared to other server side technologies? Lets find out...
+                      </strong>
+                  </p>
+                  <p class="mat-subheading-2">
+                      An appropriate analogy for <strong>Threads in NodeJs</strong> would be waiters working in a
+                      resturant.
+                      For every order customer would place, a dedicated waiter will serve him. Customer in this case
+                      represents <strong><i>User</i></strong> in the system and the waiter represents a
+                      <strong><i>Thread</i></strong>. So customer orders food and the waiter takes the order to chef.
+                  </p>
+                  <p class="mat-subheading-2">Meanwhile!! Chef is preparing up recipie, the waiter sits idle. Another
+                      customer meanwhile places an order, the restaurant manger would need another decided waiter.</p>
+                  <p class="mat-subheading-2">
+                      <span class="mat-body-strong">This is exactly what happens in .NET, Java & PHP applications where
+                          each user request is assigned a dedicated thread.</span>
+                      <span> Any blocking task similar to cooking up the food (application
+                          scenario reading a file), the waiter or thread sits idle. Since for each customer we need a
+                          dedicated waiter this will complicate things. As the customers increase the restaurant manager
+                          will need to hire more waiters, not optimally utilizing them.</span>
+                  </p>
+                  <p class="mat-subheading-2">The solution may be, lies in having
+                      a single waiter to handle customer requests, who then delegates to a bunch of waiters and gets
+                      to taking orders from other customers. See this detailed demonstration...</p>
+          
+      
+              </section>
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+          </mat-card-actions>
+      </mat-card>
+      </mat-tab>
+      <mat-tab label="Objectives">
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<!-- </div> -->

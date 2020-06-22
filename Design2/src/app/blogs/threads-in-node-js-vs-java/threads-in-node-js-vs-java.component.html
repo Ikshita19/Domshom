@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Threads in NodeJS</mat-card-title>
+        <mat-card-subtitle>Threads in NodeJS vs Other Server Side Technologies</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <section class="example-display">
+            <p class="mat-subheading-2">
+                <strong>
+                    NodeJS is blistering fast and already so popular. But what makes it so? How it is sailing
+                    compared to other server side technologies? Lets find out...
+                </strong>
+            </p>
+            <p class="mat-subheading-2">
+                An appropriate analogy for <strong>Threads in NodeJs</strong> would be waiters working in a
+                resturant.
+                For every order customer would place, a dedicated waiter will serve him. Customer in this case
+                represents <strong><i>User</i></strong> in the system and the waiter represents a
+                <strong><i>Thread</i></strong>. So customer orders food and the waiter takes the order to chef.
+            </p>
+            <p class="mat-subheading-2">Meanwhile!! Chef is preparing up recipie, the waiter sits idle. Another
+                customer meanwhile places an order, the restaurant manger would need another decided waiter.</p>
+            <p class="mat-subheading-2">
+                <span class="mat-body-strong">This is exactly what happens in .NET, Java & PHP applications where
+                    each user request is assigned a dedicated thread.</span>
+                <span> Any blocking task similar to cooking up the food (application
+                    scenario reading a file), the waiter or thread sits idle. Since for each customer we need a
+                    dedicated waiter this will complicate things. As the customers increase the restaurant manager
+                    will need to hire more waiters, not optimally utilizing them.</span>
+            </p>
+            <p class="mat-subheading-2">The solution may be, lies in having
+                a single waiter to handle customer requests, who then delegates to a bunch of waiters and gets
+                to taking orders from other customers. See this detailed demonstration...</p>
+            <div fxLayout="column wrap" fxLayoutAlign="start center">
+                <iframe class="example-center" [src]="safeSrc" height="400" frameborder="0" webkitallowfullscreen
+                    mozallowfullscreen allowfullscreen></iframe>
+            </div>
+
+        </section>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>

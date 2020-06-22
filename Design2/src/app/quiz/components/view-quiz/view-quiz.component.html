@@ -1,0 +1,112 @@
+
+    <mat-tab-group animationDuration="1000ms">
+        <mat-tab label="All Quizzes">
+  
+          <section fxLayout="row wrap" fxLayoutAlign="center">
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Search All Quizzes" (keyup)="0" #searchCategory />
+              </mat-form-field>
+          </section>
+          <!-- <section class="newtraining" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px" fxLayoutGap.xs="0" > -->
+          <div class="container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px"  fxLayoutGap.xs="0">    
+          <!-- <div fxFlex.lg="calc(33% - 16px)" fxFlex.lt-lg="0 1 calc(50% - 16px)" fxFlex.xs="calc(100% - 16px)" *ngFor="let video of allvideos | search: 'title' :searchCategory.value"> -->
+          <!-- <div > -->
+          <!-- <a mat-button (click)="startVideo('videos/watch', video.title)"> -->
+          <!-- <mat-card fxFlex="0 1 calc(30% - 20px)" *ngFor="let video of allvideos | search: 'title' :searchCategory.value" class="product"> -->
+          <mat-card fxFlex.lg="0 1 calc(33% - 16px)" fxFlex.lt-lg="0 1 calc(50% - 16px)" fxFlex.xs="calc(100% - 16px)" *ngFor="let quiz of quizzes | search: 'title' :searchCategory.value" class="product" (click)="startQuiz('quiz/takequiz/', quiz.title)" matRipple appMaterialElevation raisedElevation="16">
+              <mat-card-header>
+                  <mat-card-title fxLayoutAlign="start" >
+                    {{quiz.title}}
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>  
+                  <p >
+                      {{quiz.description}}
+                  </p>
+                </mat-card-content>
+          </mat-card>
+          
+          </div>
+          
+          <!-- </section> -->
+  
+        </mat-tab>
+        <mat-tab label="My Quizzes" [disabled]="!authService.getIsAuth()">
+            <div class="container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px"  fxLayoutGap.xs="0">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title fxLayoutAlign="start" >
+                      No Quiz Allocated
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>  
+                    <p >
+                        Quiz will appear after enrolling to video courses
+                    </p>
+                  </mat-card-content>
+            </mat-card>
+        </div>
+          <!-- <section fxLayout="row wrap" fxLayoutAlign="center">
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Search Enrolled Courses" (keyup)="0" #searchEnrolled />
+              </mat-form-field>
+          </section>
+          <div class="container" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px"  fxLayoutGap.xs="0">  
+  
+          <mat-card fxFlex.lg="0 1 calc(33% - 16px)" fxFlex.lt-lg="0 1 calc(50% - 16px)" fxFlex.xs="calc(100% - 16px)" *ngFor="let video of videos | search: 'title' :searchEnrolled.value" class="product" (click)="startVideo('videos/watchauth', video.title)" matRipple appMaterialElevation raisedElevation="16">
+              <mat-card-header>
+                  <mat-card-title fxLayoutAlign="start" >
+                      {{video.title}}
+                  </mat-card-title>
+                  <mat-card-subtitle>{{video.totallectures}} lectures <mat-icon aria-hidden="false" aria-label="Example home icon">push_pin</mat-icon> {{video.hours}} total hours <mat-icon aria-hidden="false" aria-label="Example home icon">push_pin</mat-icon> {{video.level}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="image" mat-card-image [src]="video.poster" alt="Photo of a Shiba Inu"/>
+             
+                <mat-card-content>
+                  
+                  <p >
+                      {{video.description}}
+                  </p>
+                  
+                </mat-card-content>
+                <mat-card-actions>
+                  <mat-card-subtitle>Total Enrolled: {{video.totalenrolled}}</mat-card-subtitle>
+                  <mat-star-rating [rating]="rating" color="primary" [starCount]="starCount" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+                </mat-card-actions>
+          </mat-card>
+          </div> -->
+        </mat-tab>
+      </mat-tab-group>
+  
+  
+
+<!-- <div>
+
+   
+
+    <section class="newtraining" fxLayout="row wrap" fxLayoutAlign="center">
+            <div mat-card-avatar class="example-header-image"></div>
+            <h2>Take a Quiz</h2>
+            <h4>Test Yourself Up!!</h4>
+    </section>
+    <section fxLayout="row wrap" fxLayoutAlign="center">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Search Quiz" (keyup)="0" #searchCategory />
+        </mat-form-field>
+    </section>
+        <section class="newtraining" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="16px"
+        fxLayoutGap.xs="0" >
+        <mat-card fxFlex.lg="calc(33% - 16px)" fxFlex.lt-lg="0 1 calc(50% - 16px)" fxFlex.xs="calc(100% - 16px)" *ngFor="let quiz of quizzes | search: 'title' :searchCategory.value">
+
+            <mat-card-title>
+                {{quiz.title}}
+            </mat-card-title>
+            <mat-card-subtitle>{{quiz.description}}</mat-card-subtitle>
+            <mat-card-content>
+                <button mat-stroked-button (click)="startQuiz('quiz/takequiz', quiz.title)">Start Quiz <mat-icon
+                        aria-hidden="false" aria-label="Example home icon">assignment</mat-icon></button>
+            </mat-card-content>
+        </mat-card>
+        </section>
+    
+</div> -->

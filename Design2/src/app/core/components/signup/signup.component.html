@@ -1,0 +1,51 @@
+<div class="login-wrapper" fxLayout="row wrap" fxLayoutAlign="center center" fxFlexFill >
+<mat-card>
+  <mat-card-content>
+
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+
+    <!-- FLEX-CHILD - LEFT -->
+    <div class="box" fxFlex="1 1" fxFlexFill fxHide.lt-md>
+      <img  src="../../../../assets/images/preview.jpg"/>
+    </div>
+
+    <!-- FLEX-CHILD - RIGHT -->
+    <div class="box" fxFlex="1 1" fxFlexFill>
+
+    <form [formGroup]="signUpForm" (submit)="onSignup()" *ngIf="!isLoading">
+      <mat-form-field>
+        <input matInput  formControlName="email"  type="email" placeholder="E-Mail*">
+        <!-- <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error> -->
+        <mat-error *ngIf="signUpForm.get('email').invalid">Please enter a valid email.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput  formControlName="password"  type="password" placeholder="Password*">
+        <!-- <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error> -->
+        <mat-error *ngIf="signUpForm.get('password').invalid">Please enter a valid password (Minimum 6 characters).</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput  formControlName="cpassword"  type="password" placeholder="Confirm Password*">
+        <!-- <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error> -->
+        <!-- <mat-error *ngIf="signUpForm.get('cpassword').invalid">Please enter a valid password (Minimum 6 characters).</mat-error> -->
+        <!-- <div *ngIf="signUpForm.cpassword.errors.confirmedValidator">Password and Confirm Password must be match.</div> -->
+        <!-- <mat-error *ngIf="signUpForm.errors?.confirmedValidator">Passwords don't match.</mat-error> -->
+        
+      </mat-form-field>
+      <mat-error *ngIf="signUpForm.errors?.confirmedValidator && (signUpForm.get('cpassword').touched || signUpForm.get('cpassword').dirty)" class="cross-validation-error-message alert alert-danger">
+        <small>Passwords don't match.</small>
+      </mat-error>
+      
+
+      <button mat-stroked-button type="submit" color="primary"  [disabled]="!signUpForm.valid" *ngIf="!isLoading">Signup</button>
+
+
+      <div class="small-box">
+        <button type="button" mat-raised-button color="accent" [routerLink]="['/login']" routerLinkActive="router-link-active" >Already have an account? Login In Here</button>
+      </div>
+    </form>
+
+    </div>
+  </mat-card-content>
+  </mat-card>
+</div>
+  

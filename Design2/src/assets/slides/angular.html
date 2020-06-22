@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Angular</title>
+	
+	<meta name="description" content="">
+		<meta name="author" content="">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="revealjs/css/reveal.css">
+		<link rel="stylesheet" href="revealjs/css/theme/simple.css">
+		<link rel="stylesheet" href="revealjs/lib/css/monokai.css">
+		<link rel="stylesheet" href="revealjs/css/my.css">
+		<link rel="stylesheet" href="revealjs/css/bootstrap.min.css">
+		<link rel="stylesheet" href="revealjs/lib/css/zenburn.css">
+
+	
+</head>
+<body>
+	
+	<div class="reveal">
+		<div class="slides">
+			
+			<section>
+				<span id="title1" class="center-block"><b>Angular</b></span>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Architecture</span><br>
+				<img class="fragment" data-fragment-index="1" src="images/angular2/bbb.png" alt="">
+			</section>
+			<section>
+				<span id="title1" class="center-block">Architecture</span>
+				<br>
+				<ul>
+					<li class="fragment" data-fragment-index="1">Module</li>
+					<li class="fragment" data-fragment-index="2">Component</li>
+					<li class="fragment" data-fragment-index="3">Template</li>
+					<li class="fragment" data-fragment-index="4">Metadata</li>
+					<li class="fragment" data-fragment-index="5">Data Binding</li>
+					<li class="fragment" data-fragment-index="6">Service</li>
+					<li class="fragment" data-fragment-index="7">Directive</li>
+					<li class="fragment" data-fragment-index="8">Dependency Injection</li>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Module</span>
+				<br>
+				<ul>
+					<li class="fragment" data-fragment-index="1">Every Angular app has at least one Angular module class, the <u>root module</u>.</li>
+					<li class="fragment" data-fragment-index="2">An Angular module, is a class with an <u><b>@NgModule decorator</b></u>.</li>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">NgModule</span>
+				<br>
+				<ul>
+					<li class="fragment" data-fragment-index="1">NgModule is a decorator function that takes a single metadata object whose properties describe the module.</li>
+					<ol>
+					<li style="font-size:0.7em;" class="fragment" data-fragment-index="2"><u><b>declarations</b></u> - the view classes that belong to this module. [components | directives | pipes]</li>
+					<li style="font-size:0.7em;" class="fragment" data-fragment-index="3"><u><b>imports</b></u> - other exported modules needed by this module component templates. [BrowserModule | FormModule]</li>
+					<li style="font-size:0.7em;" class="fragment" data-fragment-index="4"><u><b>providers</b></u> - services become accessible in all parts of this module. [HttpService | LoggerService]</li>
+					<li style="font-size:0.7em;" class="fragment" data-fragment-index="5"><u><b>bootstrap</b></u> - the main application view, called the root component, that hosts all other app views. Only the root module should set this bootstrap property. [AppComponent]</li>
+					</ol>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">NgModule</span><br>
+				<img class="fragment" data-fragment-index="1" src="images/angular2/ccc.png" alt="">
+			</section>
+			<section>
+				<span id="title1" class="center-block">Component</span>
+				<br>
+				<ul>
+					<li class="fragment" data-fragment-index="1">A component is a controller class with a template which mainly deals with a view of the application and logic on the page.</li>
+					<li class="fragment" data-fragment-index="2"><b><u>@Component</u></b> annotation is used to register component.</li>
+					<li class="fragment" data-fragment-index="3">There will be only one component per DOM element.</li>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Component</span>
+				<br>
+				<img class="fragment" data-fragment-index="1" src="images/angular2/ddd.png" alt="">
+			</section>
+			<section>
+				<span id="title1" class="center-block">Component</span>
+				<ul>
+				<li id="center" class="fragment" data-fragment-index="1">Defines a component's view with its companion <b>template.</b>
+						<ul>
+							<li class="fragment" data-fragment-index="2" style="font-size:0.8em;">A form of HTML that tells Angular how to render the component.</li>
+						</ul>
+				</ul>
+				<div><img class="fragment" data-fragment-index="3" src="images/angular2/eee.png" alt=""></div><br>
+				<div><span class="fragment" data-fragment-index="4" style="float:left; border: 1px solid #e2a0a0;padding: 5px; background:#c0c1bc;">app.component.html</span></div><br><br>
+				<img class="fragment" data-fragment-index="5" src="images/angular2/fff.png" alt="">
+			</section>
+			<section>
+				<span id="title1" class="center-block">Metadata</span><br>
+				<ul>
+				<li class="fragment" data-fragment-index="1">A way of processing the class.</li>
+				<li id="center" class="fragment" data-fragment-index="2">Consider a class called <b><u>MyComponent</u></b>.
+						<ul>
+							<li class="fragment" data-fragment-index="3" style="font-size:0.8em;">How would angular recognize it as component.</li>
+							<li class="fragment" data-fragment-index="4" style="font-size:0.8em;">Metadata (@Component decorator) is used to the class to tell Angular that <b><u>MyComponent</u></b> is a component.</li>
+						</ul>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Metadata </span>
+				<br>
+				<ul>
+					<li class="fragment" data-fragment-index="1">@Component configuration options:</li>
+					<ol>
+					<li style="font-size:0.8em;" class="fragment" data-fragment-index="2"><b><u>moduleId:</u></b> sets the source of the base address [<u>module.id</u>]</li>
+					<li style="font-size:0.8em;" class="fragment" data-fragment-index="3"><b><u>selector:</u></b> html selector that tells Angular to create and insert an instance of this component. For example, if an app's HTML contains <app-root></app-root>, then Angular inserts an instance of the AppComponent view between those tags</li>
+					<li style="font-size:0.8em;" class="fragment" data-fragment-index="4"><b><u>template/templateUrl:</u></b> module-relative address of this component's HTML template.</li>
+					<li style="font-size:0.8em;" class="fragment" data-fragment-index="5"><b><u>providers:</u></b> array of <u>dependency injection providers</u> for services that this component requires.</li>
+					</ol>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Data Binding</span><br>
+				<ul>
+				<li id="center" class="fragment" data-fragment-index="1">Mechanism for coordinating parts of a template with parts of a component
+						<ul>
+							<li class="fragment" data-fragment-index="2" style="font-size:0.8em;">Pushes data values into the HTML from logic.</li>
+						</ul>
+				</ul>
+				<img class="fragment" data-fragment-index="3" src="images/angular2/ggg.png" alt="">
+			</section>
+			<section>
+				<span id="title1" class="center-block">Data Binding</span>
+				<br>
+				<ul>
+					<li class="fragment" data-fragment-index="1"><b>Interpolation:</b> Displays the component's property value within the HTML element.</li>
+					<li class="fragment" data-fragment-index="2"><b>Property Binding:</b> It passes the property from the parent to the child.</li>
+					<li class="fragment" data-fragment-index="3"><b>Event Binding:</b> It fires the event.</li>
+					<li class="fragment" data-fragment-index="4"><b>Two-way Binding:</b> This form binds property and event by using the ngModel directive in a single notation.</li>
+				</ul>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Service </span>
+				<br><br>
+				<ul>
+					<li class="fragment" data-fragment-index="1">Injected using Dependency Injection mechanism.</li>
+					<li class="fragment" data-fragment-index="2">Singleton classes that are responsible for doing a specific task only such as <i>logging service, data service, message service, the configuration of application etc.</i></li>
+				</ul>
+			</section>
+
+			<section>
+				<span id="title1" class="center-block">Directives </span>
+				<br>
+				<img class="fragment" src="images/angular2/directive.png" alt=""/>
+			</section>
+			<section>
+				<span id="title1" class="center-block">Dependency Injection</span>
+				<br>
+				<img class="fragment" src="images/angular2/Angular-2-Singletone-Service.png" alt=""/>
+			</section>
+			
+				
+		</div>
+	</div>
+
+	<!-- <script src="reveal/lib/js/head.min.js"></script> -->
+	<script src="revealjs/js/reveal.js"></script>
+	<!-- <script src="reveal/js/ds-reveal-conf.js"></script> -->
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			hash: true,
+			dependencies: [
+				{ src: 'revealjs/plugin/markdown/marked.js' },
+				{ src: 'revealjs/plugin/markdown/markdown.js' },
+				{ src: 'revealjs/plugin/highlight/highlight.js' },
+				{ src: 'revealjs/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+
+</body>
+
+</html>
