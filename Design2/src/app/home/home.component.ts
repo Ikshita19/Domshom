@@ -47,5 +47,21 @@ export class HomeComponent implements OnInit {
     // this.showDialog(path, title);
     this.router.navigate([path, title]);
   }
+  redirect(type:string)
+  {
+    console.log("in method!");
+    if(type=='quiz')
+    {
+      this.router.navigate(['/quiz']);
+    }
+    else if(type=='blog')
+    {
+      this.router.navigate(['/blogs']);
+    }
+    else if(type=='course')
+    {
+      this.router.navigate(['/videos']);
+    }
+  }
 
 }

@@ -46,7 +46,7 @@
 
 
 <div class="Card-made">
-  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" (click)="redirect('course')">
     <div class="mdl-card__title mdl-card--expand">
       <h2 class="mdl-card__title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima?</h2>
 
@@ -61,7 +61,7 @@
 
 
 
-  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" (click)="redirect('quiz')">
     <div class="mdl-card__title quizes mdl-card--expand">
       <h2 class="mdl-card__title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima?</h2>
     </div>
@@ -73,7 +73,7 @@
     </div>
   </div>
 
-  <div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" (click)="redirect('blog')">
     <div class="mdl-card__title blogs mdl-card--expand flip-card-inner">
       <h2 class="mdl-card__title-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, minima?</h2>
     </div>
@@ -88,3 +88,76 @@
 
 
 </div>
+
+<div class="wrapper">
+  
+  <div class="cols">
+			
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+						<div class="inner">
+							<p>C O U R S E S</p>
+              <span>A video based learning experience </span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						  <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                
+                <br>
+
+                <button mat-flat-button class="btn-btn" (click)="redirect('course')">Explore</button>
+              </p>
+						</div>
+					</div>
+				</div>
+      </div>
+      
+
+			<div class="col" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)">
+						<div class="inner">
+							<p>Q U I Z</p>
+              <span>Question answer based learning</span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						  <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                
+                <br>
+
+                <button mat-flat-button class="btn-btn" (click)="redirect('quiz')">Explore</button>
+              </p>
+						</div>
+					</div>
+				</div>
+      </div>
+
+
+      <div class="col" ontouchstart="this.classList.toggle('hover');">
+				<div class="container">
+					<div class="front" style="background-image: url(https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60)">
+						<div class="inner">
+							<p>B L O G</p>
+              <span>For Writing</span>
+						</div>
+					</div>
+					<div class="back">
+						<div class="inner">
+						  <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                
+                <br>
+
+                <button mat-flat-button class="btn-btn" (click)="redirect('blog')">Explore</button>
+              </p>
+						</div>
+					</div>
+				</div>
+      </div>
+
+
+		</div>
+ </div>
