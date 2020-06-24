@@ -14,8 +14,11 @@ a:hover{
     color:white;
   }
 
-  .mdl-mini-footer__right-section{
-      margin-left: 42rem;
+  .response
+  {
+      display: flex;
+      justify-content: space-around;
+      
   }
 
   .btn-img{

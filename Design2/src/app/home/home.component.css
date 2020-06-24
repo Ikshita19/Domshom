@@ -33,13 +33,20 @@ h1{
       flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: space-between !important;
+          justify-content: space-around !important;
 }
 
 .col{
   width: calc(25% - 2rem);
   margin: 1rem;
   cursor: pointer;
+  margin-right: 10px;
+  border: 4px solid white;
+}
+
+#col1
+{
+  margin-right: 10px;
 }
 
 .container{
@@ -377,6 +384,8 @@ h2{
   width: 320px;
   height: 320px;
   transition: ease-in-out 0.3s;
+  margin-right: 5px;
+  min-width: 320px;
 }
 
 .demo-card-square.mdl-card:hover{
